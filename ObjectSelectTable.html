@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <h1>Object selector with table...</h1>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table border="2">
+            <tr>
+                <th>Enter the name : </th>
+                <td><input type="text" ng-model="name" placeholder="name here..."></td>
+            </tr>
+            <tr> 
+                <th>
+                    <button ng-click="showDetails = true">Show Details</button>   
+                </th>
+                <th>
+                    <button ng-click="showDetails = false">Hide Details</button>
+                </th>
+            </tr>
+            <tr colspan="2" ng-show="showDetails">
+                <th>details : </th>
+                <td>{{name}}</td>
+            </tr>
+            <tr ng-show="showDetails">
+                <th>Subjects</th>
+                <td>
+                    <table>
+                        <tr>
+                            <th>Subjects</th>
+                            <th>Marks</th>
+                        </tr>
+                        <tr ng-repeat="x in data">
+                            <td>{{x.sub}}</td>
+                            <td>{{x.marks}}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var abc = angular.module('myApp',[]);
+        abc.controller('myCtrl',function($scope){
+            $scope.showDetails = false;
+            $scope.data = [
+                {sub : "English", marks : "92"},
+                {sub : "Chemistry", marks : "82"},
+                {sub : "Physics", marks : "99"},
+                {sub : "Zoology", marks : "75"},
+                {sub : "Maths", marks : "86"}
+            ];
+        });
+    </script>
+</body>
+</html>

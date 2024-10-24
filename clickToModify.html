@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng-click</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <hr>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h1>Click buttons to updtae the details...</h1>
+        <p>
+            Enter first name : <input type="text" ng-model="fName"><br><br>
+            Enter the last name : <input type="text" ng-model="lName">
+        </p>
+        <hr>
+        <h3>The details are : {{fName+" "+lName}}</h3>
+        <button ng-click="update()">Update</button>&nbsp;&nbsp;&nbsp;
+        <button ng-click="undo()">Back</button>
+        <hr>
+        <h3>The updated details are : {{fName+" "+lName}}</h3>
+        <hr>
+        <h3>Appling filters...</h3>
+        <p>Uppercase : {{fName | uppercase}}</p>
+        <p>Lowercase : {{lName | lowercase}}</p>
+        <p>Currency : {{1000 | currency}}</p>
+    </div>
+        <script>
+            var abc = angular.module('myApp',[]);
+            abc.controller('myCtrl',function($scope){
+                $scope.fName = "Vinayak";
+                $scope.lName = "Gupta";
+
+                var originalValue = $scope.fName;
+                var originalValue2 = $scope.lName;
+
+                $scope.update = function(){
+                    $scope.fName = "Dhruv";
+                    $scope.lName = "M. Gupta";
+                };
+
+                $scope.undo = function(){
+                    $scope.fName = originalValue;
+                    $scope.lName = originalValue2;
+                };
+
+            });
+        </script>
+</body>
+</html>

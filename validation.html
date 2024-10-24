@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Form Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body ng-app="">
+    <h2>AngularJS Form Validation</h2>
+
+    <p>Try leaving the first input field blank:</p>
+    <form name="myForm">
+        <p>
+            Name:
+            <input type="text" name="myName" ng-model="myName" required>
+            <span class="error" ng-show="myForm.myName.$touched && myForm.myName.$invalid">
+                The name is required.
+            </span>
+        </p>
+        <p>
+            Address:
+            <input type="text" name="myAddress" ng-model="myAddress" required>
+        </p>
+    </form>
+
+    <p>We use the <code>ng-show</code> directive to only show the error message if the field has been touched AND is empty.</p>
+</body>
+</html>

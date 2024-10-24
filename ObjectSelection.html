@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select object</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <h1>Display the multiple object based on the selection...</h1>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h3>Select the car option in the below section:</h3>
+        <select ng-model="pickUp" ng-options='x for (x,y) in cars'>Choose</select>
+        
+        <hr>
+        <h2>You selected : {{pickUp.brand}}</h2>
+        <h2>Model name : {{pickUp.model}}</h2>
+        <h2>Model color : {{pickUp.color}}</h2>
+        <hr>
+    </div>
+    <script>
+        var abc = angular.module('myApp',[]);
+        abc.controller('myCtrl',function($scope){
+            $scope.cars = {
+                car1 : {brand : "Toyota", model : "C6T1Q",color : "Red"}
+            };
+        });
+    </script>
+</body>
+</html>

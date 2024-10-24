@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+</head>
+<body>
+    <div ng-app="myApp">
+        <h2>Animation in the Angular js</h2>
+        <input type="checkbox" ng-model="check"> Hide the data
+        <div ng-hide="check">
+            <p>this is the content.</p>
+        </div>
+    </div>
+    <script>
+        var abc = angular.module('myApp',['ngAnimate']);
+    </script>
+</body>
+</html>

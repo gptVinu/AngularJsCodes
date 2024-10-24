@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data filters</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <h1>Working with name filters...</h1>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table>
+            <tr colspan="2">
+                <td><input type="text" ng-model="dataSet" placeholder="search here..."></td>
+            </tr>
+            <tr ng-repeat="x in objects | filter:dataSet">
+                <td>{{"- "+x}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var abc = angular.module('myApp',[]);
+        abc.controller('myCtrl',function($scope){
+            $scope.objects = [
+                "Arun","Warun","Jac","Watson","Vinu"
+            ];
+        });
+    </script>
+</body>
+</html>
